@@ -6,10 +6,8 @@ mod lib;
 
 use std::time::Duration;
 
-use sdl2::image::{self, InitFlag};
 use sdl2::pixels::Color;
 use sdl2::event::Event;
-use sdl2::ttf;
 
 use crate::UIElements::*;
 use crate::lib::*;
@@ -41,10 +39,8 @@ const FOURTH_DIGIT: usize = 3;
 fn main() -> Result<(), String> {
 
   let sdl_context = sdl2::init()?;
-  let _ttf_context = ttf::init().expect("Fail to load font");
   let video_subsystem = sdl_context.video()?;
 
-  let _image_context = image::init(InitFlag::PNG | InitFlag::JPG)?;
 
   let window = video_subsystem.window("Clock Clock", WINDOW_WIDTH, WINDOW_HEIGHT)
     .position_centered()
